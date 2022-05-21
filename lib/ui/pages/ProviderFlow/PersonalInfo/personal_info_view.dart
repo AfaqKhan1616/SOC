@@ -8,7 +8,7 @@ import 'package:soc/utils/theme.dart';
 import 'package:stacked/stacked.dart';
 
 class PersonalIntoView extends StatefulWidget {
-  PersonalIntoView({Key? key}) : super(key: key);
+  const PersonalIntoView({Key? key}) : super(key: key);
 
   @override
   State<PersonalIntoView> createState() => _PersonalIntoViewState();
@@ -33,6 +33,7 @@ class _PersonalIntoViewState extends State<PersonalIntoView> {
                       profileInfo(),
                       mainText(),
                       addressField(context, model),
+                      address2Field(context, model),
                       cityField(context, model),
                       stateField(context, model),
                       zipCodeField(context, model),
@@ -58,7 +59,7 @@ class _PersonalIntoViewState extends State<PersonalIntoView> {
           height: 120,
           width: 120,
           clipBehavior: Clip.hardEdge,
-          margin: EdgeInsets.only(top: 20, bottom: 20),
+          margin: const EdgeInsets.only(top: 20, bottom: 20),
           decoration: BoxDecoration(
             border: Border.all(width: 4, color: MyTheme.mainColor),
             borderRadius: BorderRadius.circular(100),
@@ -68,11 +69,11 @@ class _PersonalIntoViewState extends State<PersonalIntoView> {
           child: Container(
             height: 50,
             width: 50,
-            margin: EdgeInsets.only(top: 15, left: 10),
+            margin: const EdgeInsets.only(top: 15, left: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
                 color: MyTheme.mainColor),
-            child: Center(
+            child: const Center(
                 child: Icon(Icons.edit, size: 20, color: MyTheme.whiteColor)),
           ),
         ),
@@ -81,8 +82,8 @@ class _PersonalIntoViewState extends State<PersonalIntoView> {
   }
 
   Widget mainText() {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20, top: 10),
+    return const Padding(
+      padding: EdgeInsets.only(bottom: 20, top: 10),
       child: Text(
         "Personal info",
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
@@ -101,6 +102,18 @@ class _PersonalIntoViewState extends State<PersonalIntoView> {
       padding: EdgeInsets.symmetric(vertical: getProportionateScreenHeight(15)),
       child: SocTextField(
         labelText: "Address line 1*",
+        // validator: model.validateEmail,
+        placeholder: "Type your address",
+        // onChanged: (value) => model.email = value!,
+        // errorText: model.emailError,
+      ),
+    );
+  }
+  Widget address2Field(BuildContext context, PersonalInfoViewModel model) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: getProportionateScreenHeight(15)),
+      child: SocTextField(
+        labelText: "Address line 2",
         // validator: model.validateEmail,
         placeholder: "Type your address",
         // onChanged: (value) => model.email = value!,

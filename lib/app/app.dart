@@ -27,6 +27,7 @@ import '../ui/pages/OnBoardingView/on_boarding_view.dart';
   MaterialRoute(page: AdditionalInfoView),
 ], dependencies: [
   LazySingleton(classType: NavigationService),
+  LazySingleton(classType: BottomSheetService),
 ])
 class AppSetup {
   /** Serves no purpose besides having an annotation attached to it */

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:soc/app/app.locator.dart';
 import 'package:soc/app/app.router.dart';
+import 'package:soc/app/register_compact_ui.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 Future<void> main() async {
   setupLocator();
+  registCompactUI();
   runApp(const MyApp());
 }
 

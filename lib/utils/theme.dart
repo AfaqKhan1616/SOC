@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 
 class MyTheme {
-  static Color mainColorLight = const Color(0xff2CCAE8);
-  static Color links = const Color(0xff5B75FF);
-  static Color lightGrey = const Color(0xffADADAD);
-  static Color lineColor = const Color(0xffD8D8D8);
-  static Color whiteColor = const Color(0xffffffff);
-  static Color lightMainColor = const Color(0xffE9FBFF);
-  static Color lightPurpleColor = const Color(0xff5B75FF);
-  static Color lightOrange = const Color(0xffFCBFAC);
-  static Color fadeOrange = const Color(0xffFFEAD7);
-  static Color lightBlue = const Color(0xffA6F0FF);
-  static Color mainColor = const Color(0xff56A201);
-  static Color yellowColor = const Color(0xffFFF06A);
-  static Color skyBlue = const Color(0xff4075FF);
-  static Color paleGreen = const Color(0xff99ffc5);
-  static Color green = const Color(0xff44f28f);
-  static Color parrotGreen = const Color(0xff5FCA5D);
-  static Color orange = const Color(0xffFFA659);
-  static Color paleGrey = const Color(0xffF8F8F8);
-  static Color lightRed = const Color(0xffFF6B6B);
-  static Color redColor = const Color(0xffD80336);
-  static Color blackColor = const Color(0xff000000);
+  static const Color mainColorLight = Color(0xff2CCAE8);
+  static const Color links = Color(0xff5B75FF);
+  static const Color lightGrey = Color(0xffADADAD);
+  static const Color lineColor = Color(0xffD8D8D8);
+  static const Color whiteColor = Color(0xffffffff);
+  static const Color lightMainColor = Color(0xffE9FBFF);
+  static const Color lightPurpleColor = Color(0xff5B75FF);
+  static const Color lightOrange = Color(0xffFCBFAC);
+  static const Color fadeOrange = Color(0xffFFEAD7);
+  static const Color lightBlue = Color(0xffA6F0FF);
+  static const Color mainColor = Color(0xff56A201);
+  static const Color yellowColor = Color(0xffFFF06A);
+  static const Color skyBlue = Color(0xff4075FF);
+  static const Color paleGreen = Color(0xff99ffc5);
+  static const Color green = Color(0xff44f28f);
+  static const Color parrotGreen = Color(0xff5FCA5D);
+  static const Color orange = Color(0xffFFA659);
+  static const Color paleGrey = Color(0xffF8F8F8);
+  static const Color lightRed = Color(0xffFF6B6B);
+  static const Color redColor = Color(0xffD80336);
+  static const Color blackColor = Color(0xff000000);
+  static const Color hintGray = Color(0xFF858585);
 }

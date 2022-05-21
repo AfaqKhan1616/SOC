@@ -1,8 +1,16 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:soc/app/app.locator.dart';
 import 'package:soc/app/app.router.dart';
+import 'package:soc/app/register_compact_ui.dart';
 import 'package:soc/models/radio_button_model.dart';
 import 'package:soc/ui/pages/app_view_model.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class FacilityInfoViewModel extends AppViewModel {
+  List<File> images = List.empty(growable: true);
+
   List<AgeType> ageTypes = [
     AgeType(name: "All ages (0-12)", isSelected: false),
     AgeType(name: "Infants", isSelected: false),
@@ -75,11 +83,31 @@ class FacilityInfoViewModel extends AppViewModel {
   onSubmit() {
     navigationService.navigateTo(Routes.professionalInfoView);
   }
+
+  pickTime(BuildContext context) async {
+    final pickedTime = await showTimePicker(
+      context: context,
+      initialTime: const TimeOfDay(hour: 00, minute: 00),
+    );
+  }
+
+  pickImage() {
+    final bottomSheetService = locator<BottomSheetService>();
+    bottomSheetService.showCustomSheet(
+      variant: BottomSheetType.imageSource,
+      data: AppImagePickerViewArguments((image) {
+        if (image != null) images.add(image);
+        navigationService.back();
+        notifyListeners();
+      }),
+    );
+  }
 }
 
 class AgeType {
   String? name;
   bool? isSelected;
+
   AgeType({
     this.name,
     this.isSelected,

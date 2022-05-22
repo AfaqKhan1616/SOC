@@ -127,10 +127,11 @@ class NewsInfoView extends StatelessWidget {
       required NewsModel newsItem,
       required EdgeInsets margin}) {
     return Padding(
-        padding: margin,
-        child: NewsItemView(
-          newsItem: newsItem,
-          showDate: true,
-        ));
+      padding: margin,
+      child: NewsItemView(
+        newsModel: newsItem,
+        showDate: true,
+      ),
+    );
   }
 }

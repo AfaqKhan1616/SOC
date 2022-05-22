@@ -99,27 +99,30 @@ class VirtualOfficeView extends StatelessWidget {
 
   Widget option(
       {required String title, required String imageName, EdgeInsets? margin,VoidCallback? onTap}) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          margin: margin,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(width: 0.5)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/images/$imageName',
-                height: getProportionateScreenHeight(100),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Text(title),
-            ],
+    return Container(
+      margin: margin,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(width: 0.5)),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: onTap,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/$imageName',
+                  height: getProportionateScreenHeight(100),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Text(title),
+              ],
+            ),
           ),
         ),
       ),

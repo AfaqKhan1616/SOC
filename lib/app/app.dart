@@ -1,5 +1,7 @@
 import 'package:soc/ui/pages/ProviderFlow/AdditionalInfo/additional_info_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/FacilityInfo/facility_info_view.dart';
+import 'package:soc/ui/pages/ProviderFlow/NewsInfo/news_info_view.dart';
+import 'package:soc/ui/pages/ProviderFlow/NewsInfoDetails/news_info_details_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/PersonalInfo/personal_info_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/PricingAndPayment/pricing_payment_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/ProfessionalInfo/professional_info_view.dart';
@@ -26,6 +28,8 @@ import '../ui/pages/OnBoardingView/on_boarding_view.dart';
   MaterialRoute(page: RequestPending),
   MaterialRoute(page: PricingPaymentView),
   MaterialRoute(page: VirtualOfficeView,initial: true),
+  MaterialRoute(page: NewsInfoView),
+  MaterialRoute(page: NewsInfoDetailsView),
   MaterialRoute(page: AdditionalInfoView),
 ], dependencies: [
   LazySingleton(classType: NavigationService),

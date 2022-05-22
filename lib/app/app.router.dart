@@ -8,10 +8,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked/stacked_annotations.dart';
 
 import '../ui/pages/OnBoardingView/on_boarding_view.dart';
 import '../ui/pages/ProviderFlow/AdditionalInfo/additional_info_view.dart';
 import '../ui/pages/ProviderFlow/FacilityInfo/facility_info_view.dart';
+import '../ui/pages/ProviderFlow/NewsInfo/news_info_view.dart';
+import '../ui/pages/ProviderFlow/NewsInfoDetails/news_info_details_view.dart';
 import '../ui/pages/ProviderFlow/PersonalInfo/personal_info_view.dart';
 import '../ui/pages/ProviderFlow/PricingAndPayment/pricing_payment_view.dart';
 import '../ui/pages/ProviderFlow/ProfessionalInfo/professional_info_view.dart';
@@ -34,6 +37,8 @@ class Routes {
   static const String requestPending = '/request-pending';
   static const String pricingPaymentView = '/pricing-payment-view';
   static const String virtualOfficeView = '/';
+  static const String newsInfoView = '/news-info-view';
+  static const String newsInfoDetailsView = '/news-info-details-view';
   static const String additionalInfoView = '/additional-info-view';
   static const all = <String>{
     splashView,
@@ -47,6 +52,8 @@ class Routes {
     requestPending,
     pricingPaymentView,
     virtualOfficeView,
+    newsInfoView,
+    newsInfoDetailsView,
     additionalInfoView,
   };
 }
@@ -66,6 +73,8 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.requestPending, page: RequestPending),
     RouteDef(Routes.pricingPaymentView, page: PricingPaymentView),
     RouteDef(Routes.virtualOfficeView, page: VirtualOfficeView),
+    RouteDef(Routes.newsInfoView, page: NewsInfoView),
+    RouteDef(Routes.newsInfoDetailsView, page: NewsInfoDetailsView),
     RouteDef(Routes.additionalInfoView, page: AdditionalInfoView),
   ];
   @override
@@ -149,6 +158,18 @@ class StackedRouter extends RouterBase {
     VirtualOfficeView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const VirtualOfficeView(),
+        settings: data,
+      );
+    },
+    NewsInfoView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const NewsInfoView(),
+        settings: data,
+      );
+    },
+    NewsInfoDetailsView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const NewsInfoDetailsView(),
         settings: data,
       );
     },

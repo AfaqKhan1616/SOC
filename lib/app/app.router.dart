@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../models/news_model.dart';
 import '../ui/pages/OnBoardingView/on_boarding_view.dart';
 import '../ui/pages/ProviderFlow/AdditionalInfo/additional_info_view.dart';
 import '../ui/pages/ProviderFlow/FacilityInfo/facility_info_view.dart';
@@ -26,7 +27,7 @@ import '../ui/pages/SplashView/splash_view.dart';
 import '../ui/pages/ZipCodeView/zip_code_view.dart';
 
 class Routes {
-  static const String splashView = '/splash-view';
+  static const String splashView = '/';
   static const String onBoardingView = '/on-boarding-view';
   static const String signUpView = '/sign-up-view';
   static const String selectUserTypeView = '/select-user-type-view';
@@ -36,7 +37,7 @@ class Routes {
   static const String facilityInfoView = '/facility-info-view';
   static const String requestPending = '/request-pending';
   static const String pricingPaymentView = '/pricing-payment-view';
-  static const String virtualOfficeView = '/';
+  static const String virtualOfficeView = '/virtual-office-view';
   static const String newsInfoView = '/news-info-view';
   static const String newsInfoDetailsView = '/news-info-details-view';
   static const String additionalInfoView = '/additional-info-view';
@@ -168,8 +169,12 @@ class StackedRouter extends RouterBase {
       );
     },
     NewsInfoDetailsView: (data) {
+      var args = data.getArgs<NewsInfoDetailsViewArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const NewsInfoDetailsView(),
+        builder: (context) => NewsInfoDetailsView(
+          key: args.key,
+          newsModel: args.newsModel,
+        ),
         settings: data,
       );
     },
@@ -217,6 +222,13 @@ class FacilityInfoViewArguments {
 class PricingPaymentViewArguments {
   final Key? key;
   PricingPaymentViewArguments({this.key});
+}
+
+/// NewsInfoDetailsView arguments holder class
+class NewsInfoDetailsViewArguments {
+  final Key? key;
+  final NewsModel newsModel;
+  NewsInfoDetailsViewArguments({this.key, required this.newsModel});
 }
 
 /// AdditionalInfoView arguments holder class

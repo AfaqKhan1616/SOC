@@ -17,7 +17,7 @@ import 'package:stacked_services/stacked_services.dart';
 import '../ui/pages/OnBoardingView/on_boarding_view.dart';
 
 @StackedApp(routes: [
-  MaterialRoute(page: SplashView),
+  MaterialRoute(page: SplashView,initial: true),
   MaterialRoute(page: OnBoardingView),
   MaterialRoute(page: SignUpView),
   MaterialRoute(page: SelectUserTypeView),
@@ -27,7 +27,7 @@ import '../ui/pages/OnBoardingView/on_boarding_view.dart';
   MaterialRoute(page: FacilityInfoView),
   MaterialRoute(page: RequestPending),
   MaterialRoute(page: PricingPaymentView),
-  MaterialRoute(page: VirtualOfficeView,initial: true),
+  MaterialRoute(page: VirtualOfficeView),
   MaterialRoute(page: NewsInfoView),
   MaterialRoute(page: NewsInfoDetailsView),
   MaterialRoute(page: AdditionalInfoView),

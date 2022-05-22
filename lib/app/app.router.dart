@@ -8,7 +8,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked/stacked_annotations.dart';
 
 import '../ui/pages/OnBoardingView/on_boarding_view.dart';
 import '../ui/pages/ProviderFlow/AdditionalInfo/additional_info_view.dart';
@@ -17,6 +16,7 @@ import '../ui/pages/ProviderFlow/PersonalInfo/personal_info_view.dart';
 import '../ui/pages/ProviderFlow/PricingAndPayment/pricing_payment_view.dart';
 import '../ui/pages/ProviderFlow/ProfessionalInfo/professional_info_view.dart';
 import '../ui/pages/ProviderFlow/RequestPending/request_pending_view.dart';
+import '../ui/pages/ProviderFlow/VirtualOffice/virtual_office_view.dart';
 import '../ui/pages/SelectUserTypeView/user_type_view.dart';
 import '../ui/pages/SignUpView/signup_view.dart';
 import '../ui/pages/SplashView/splash_view.dart';
@@ -24,7 +24,7 @@ import '../ui/pages/ZipCodeView/zip_code_view.dart';
 
 class Routes {
   static const String splashView = '/splash-view';
-  static const String onBoardingView = '/';
+  static const String onBoardingView = '/on-boarding-view';
   static const String signUpView = '/sign-up-view';
   static const String selectUserTypeView = '/select-user-type-view';
   static const String professionalInfoView = '/professional-info-view';
@@ -33,6 +33,7 @@ class Routes {
   static const String facilityInfoView = '/facility-info-view';
   static const String requestPending = '/request-pending';
   static const String pricingPaymentView = '/pricing-payment-view';
+  static const String virtualOfficeView = '/';
   static const String additionalInfoView = '/additional-info-view';
   static const all = <String>{
     splashView,
@@ -45,6 +46,7 @@ class Routes {
     facilityInfoView,
     requestPending,
     pricingPaymentView,
+    virtualOfficeView,
     additionalInfoView,
   };
 }
@@ -63,6 +65,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.facilityInfoView, page: FacilityInfoView),
     RouteDef(Routes.requestPending, page: RequestPending),
     RouteDef(Routes.pricingPaymentView, page: PricingPaymentView),
+    RouteDef(Routes.virtualOfficeView, page: VirtualOfficeView),
     RouteDef(Routes.additionalInfoView, page: AdditionalInfoView),
   ];
   @override
@@ -114,11 +117,8 @@ class StackedRouter extends RouterBase {
       );
     },
     PersonalIntoView: (data) {
-      var args = data.getArgs<PersonalIntoViewArguments>(
-        orElse: () => PersonalIntoViewArguments(),
-      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => PersonalIntoView(key: args.key),
+        builder: (context) => const PersonalIntoView(),
         settings: data,
       );
     },
@@ -143,6 +143,12 @@ class StackedRouter extends RouterBase {
       );
       return MaterialPageRoute<dynamic>(
         builder: (context) => PricingPaymentView(key: args.key),
+        settings: data,
+      );
+    },
+    VirtualOfficeView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const VirtualOfficeView(),
         settings: data,
       );
     },
@@ -178,12 +184,6 @@ class SignUpViewArguments {
 class ProfessionalInfoViewArguments {
   final Key? key;
   ProfessionalInfoViewArguments({this.key});
-}
-
-/// PersonalIntoView arguments holder class
-class PersonalIntoViewArguments {
-  final Key? key;
-  PersonalIntoViewArguments({this.key});
 }
 
 /// FacilityInfoView arguments holder class

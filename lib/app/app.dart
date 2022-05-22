@@ -4,6 +4,7 @@ import 'package:soc/ui/pages/ProviderFlow/PersonalInfo/personal_info_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/PricingAndPayment/pricing_payment_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/ProfessionalInfo/professional_info_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/RequestPending/request_pending_view.dart';
+import 'package:soc/ui/pages/ProviderFlow/VirtualOffice/virtual_office_view.dart';
 import 'package:soc/ui/pages/SelectUserTypeView/user_type_view.dart';
 import 'package:soc/ui/pages/SignUpView/signup_view.dart';
 import 'package:soc/ui/pages/SplashView/splash_view.dart';
@@ -15,7 +16,7 @@ import '../ui/pages/OnBoardingView/on_boarding_view.dart';
 
 @StackedApp(routes: [
   MaterialRoute(page: SplashView),
-  MaterialRoute(page: OnBoardingView, initial: true),
+  MaterialRoute(page: OnBoardingView),
   MaterialRoute(page: SignUpView),
   MaterialRoute(page: SelectUserTypeView),
   MaterialRoute(page: ProfessionalInfoView),
@@ -24,6 +25,7 @@ import '../ui/pages/OnBoardingView/on_boarding_view.dart';
   MaterialRoute(page: FacilityInfoView),
   MaterialRoute(page: RequestPending),
   MaterialRoute(page: PricingPaymentView),
+  MaterialRoute(page: VirtualOfficeView,initial: true),
   MaterialRoute(page: AdditionalInfoView),
 ], dependencies: [
   LazySingleton(classType: NavigationService),

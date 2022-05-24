@@ -10,9 +10,10 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SplashViewModel>.reactive(
-        onModelReady: (model) => model.onModelReady(),
+        //onModelReady: (model) => model.onModelReady(),
         viewModelBuilder: () => SplashViewModel(),
         builder: (context, model, child) {
           return Scaffold(
@@ -25,21 +26,21 @@ class _SplashViewState extends State<SplashView> {
                     padding: const EdgeInsets.only(left: 100),
                     child: drawCircles(10, Colors.yellow),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 250),
                     child: drawCircles(20, Colors.blue),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 300),
                     child: drawCircles(15, Colors.yellow),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
@@ -58,7 +59,7 @@ class _SplashViewState extends State<SplashView> {
                     child: Column(
                       children: [
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage(
                                 "assets/images/class.png",
@@ -69,14 +70,14 @@ class _SplashViewState extends State<SplashView> {
                           height: MediaQuery.of(context).size.height * 0.33,
                           width: MediaQuery.of(context).size.width * 0.7,
                         ),
-                        Text(
+                        const Text(
                           "Schools",
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
+                        const Text(
                           "Of Childcare",
                           style: TextStyle(
                             fontSize: 15,
@@ -85,28 +86,28 @@ class _SplashViewState extends State<SplashView> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 150),
                     child: drawCircles(10, Colors.yellow),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 120),
                     child: drawCircles(15, Colors.blue),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 280),
                     child: drawCircles(25, Colors.yellow),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
@@ -124,6 +125,14 @@ class _SplashViewState extends State<SplashView> {
                   Padding(
                     padding: const EdgeInsets.only(left: 100),
                     child: drawCircles(10, Colors.yellow),
+                  ),
+                  ElevatedButton(
+                    onPressed: model.openApp,
+                    child: Text("Open App"),
+                  ),
+                  ElevatedButton(
+                    onPressed: model.openWebView,
+                    child: Text("Open Webview"),
                   ),
                 ],
               ),

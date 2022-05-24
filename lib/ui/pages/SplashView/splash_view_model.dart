@@ -1,6 +1,5 @@
 import 'package:soc/app/app.router.dart';
 import 'package:soc/ui/pages/app_view_model.dart';
-import 'package:stacked/stacked.dart';
 
 class SplashViewModel extends AppViewModel {
   void onModelReady() async {
@@ -8,5 +7,13 @@ class SplashViewModel extends AppViewModel {
     Future.delayed(Duration(seconds: 2), () {
       navigationService.clearStackAndShow(Routes.onBoardingView);
     });
+  }
+
+  void openApp() {
+    navigationService.clearStackAndShow(Routes.onBoardingView);
+  }
+
+  void openWebView() {
+    navigationService.clearStackAndShow(Routes.testWebview);
   }
 }

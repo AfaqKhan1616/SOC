@@ -11,6 +11,7 @@ import 'package:soc/ui/pages/SelectUserTypeView/user_type_view.dart';
 import 'package:soc/ui/pages/SignUpView/signup_view.dart';
 import 'package:soc/ui/pages/SplashView/splash_view.dart';
 import 'package:soc/ui/pages/ZipCodeView/zip_code_view.dart';
+import 'package:soc/ui/pages/test_webview.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -31,6 +32,7 @@ import '../ui/pages/OnBoardingView/on_boarding_view.dart';
   MaterialRoute(page: NewsInfoView),
   MaterialRoute(page: NewsInfoDetailsView),
   MaterialRoute(page: AdditionalInfoView),
+  MaterialRoute(page: TestWebview),
 ], dependencies: [
   LazySingleton(classType: NavigationService),
   LazySingleton(classType: BottomSheetService),

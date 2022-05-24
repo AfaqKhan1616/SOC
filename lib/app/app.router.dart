@@ -8,7 +8,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked/stacked_annotations.dart';
 
 import '../models/news_model.dart';
 import '../ui/pages/OnBoardingView/on_boarding_view.dart';
@@ -25,6 +24,7 @@ import '../ui/pages/SelectUserTypeView/user_type_view.dart';
 import '../ui/pages/SignUpView/signup_view.dart';
 import '../ui/pages/SplashView/splash_view.dart';
 import '../ui/pages/ZipCodeView/zip_code_view.dart';
+import '../ui/pages/test_webview.dart';
 
 class Routes {
   static const String splashView = '/';
@@ -41,6 +41,7 @@ class Routes {
   static const String newsInfoView = '/news-info-view';
   static const String newsInfoDetailsView = '/news-info-details-view';
   static const String additionalInfoView = '/additional-info-view';
+  static const String testWebview = '/test-webview';
   static const all = <String>{
     splashView,
     onBoardingView,
@@ -56,6 +57,7 @@ class Routes {
     newsInfoView,
     newsInfoDetailsView,
     additionalInfoView,
+    testWebview,
   };
 }
 
@@ -77,6 +79,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.newsInfoView, page: NewsInfoView),
     RouteDef(Routes.newsInfoDetailsView, page: NewsInfoDetailsView),
     RouteDef(Routes.additionalInfoView, page: AdditionalInfoView),
+    RouteDef(Routes.testWebview, page: TestWebview),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -184,6 +187,12 @@ class StackedRouter extends RouterBase {
       );
       return MaterialPageRoute<dynamic>(
         builder: (context) => AdditionalInfoView(key: args.key),
+        settings: data,
+      );
+    },
+    TestWebview: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const TestWebview(),
         settings: data,
       );
     },

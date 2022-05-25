@@ -4,7 +4,6 @@ import 'package:soc/ui/pages/ZipCodeView/zip_code_view_model.dart';
 import 'package:soc/ui/widgets/smart_widgets/soc_button.dart';
 import 'package:soc/ui/widgets/smart_widgets/soc_text_field.dart';
 import 'package:soc/utils/size_config.dart';
-import 'package:soc/utils/theme.dart';
 import 'package:stacked/stacked.dart';
 
 class ZipCodeView extends StatefulWidget {
@@ -14,12 +13,13 @@ class ZipCodeView extends StatefulWidget {
 }
 
 class _ZipCodeViewState extends State<ZipCodeView> {
-  Set<Marker> _markers = {};
+  final Set<Marker> _markers = {};
 
+  @override
   Widget build(BuildContext context) {
     void _onMapCreated(GoogleMapController controller) {
       setState(() {
-        _markers.add(Marker(
+        _markers.add(const Marker(
             markerId: MarkerId('id-1'),
             position: LatLng(55.851141, -4.237958)));
       });
@@ -47,13 +47,15 @@ class _ZipCodeViewState extends State<ZipCodeView> {
                       )),
                   Expanded(
                     flex: 3,
-                    child: Stack(
+                    child: Column(
                       children: [
-                        GoogleMap(
-                          onMapCreated: _onMapCreated,
-                          markers: _markers,
-                          initialCameraPosition: CameraPosition(
-                              target: LatLng(55.851141, -4.237958), zoom: 15),
+                        Expanded(
+                          child: GoogleMap(
+                            onMapCreated: _onMapCreated,
+                            markers: _markers,
+                            initialCameraPosition: const CameraPosition(
+                                target: LatLng(55.851141, -4.237958), zoom: 15),
+                          ),
                         ),
                         continueButton(context, model)
                       ],
@@ -69,7 +71,7 @@ class _ZipCodeViewState extends State<ZipCodeView> {
   Widget topImage() {
     return Center(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               "assets/images/zip_code_image.png",
@@ -84,7 +86,7 @@ class _ZipCodeViewState extends State<ZipCodeView> {
   }
 
   Widget zipText() {
-    return Text(
+    return const Text(
       "Enter your zip code",
       style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
     );
@@ -110,7 +112,7 @@ class _ZipCodeViewState extends State<ZipCodeView> {
       alignment: Alignment.bottomCenter,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
-        child: Container(
+        child: SizedBox(
           height: getProportionateScreenHeight(50),
           child: SocButton(
             onPressed: () {

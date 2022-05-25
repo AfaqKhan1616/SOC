@@ -6,15 +6,18 @@ class SignUpViewModel extends AppViewModel {
   String? emailError;
   String? passwordError;
   String? zipError;
+  String? licenseNoError;
 
   String name = "";
   String email = "";
   String password = "";
   String zip = "";
+  String licenseNo = '';
 
   String myValue = "";
   String? myValueError;
   bool passwordVisible = true;
+
 
   void validateMyValue(String? value) {
     if (value == null || value.isEmpty) {
@@ -30,6 +33,14 @@ class SignUpViewModel extends AppViewModel {
       nameError = "Full Name is required";
     } else {
       nameError = null;
+    }
+    notifyListeners();
+  }
+  void validateLicenseNo(String? value) {
+    if (value == null || value.isEmpty) {
+      licenseNoError = "License No is required";
+    } else {
+      licenseNoError = null;
     }
     notifyListeners();
   }
@@ -73,7 +84,7 @@ class SignUpViewModel extends AppViewModel {
   }
 
   void onSubmit() async {
-    navigationService.navigateTo(Routes.zipCodeView);
+    navigationService.navigateTo(Routes.tabsView);
     // if (checkValid()) {
     //   showLoadingDialog();
     //   try {

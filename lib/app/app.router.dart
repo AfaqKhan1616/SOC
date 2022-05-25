@@ -8,7 +8,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked/stacked_annotations.dart';
 
 import '../models/news_model.dart';
 import '../ui/pages/OnBoardingView/on_boarding_view.dart';
@@ -20,6 +19,7 @@ import '../ui/pages/ProviderFlow/PersonalInfo/personal_info_view.dart';
 import '../ui/pages/ProviderFlow/PricingAndPayment/pricing_payment_view.dart';
 import '../ui/pages/ProviderFlow/ProfessionalInfo/professional_info_view.dart';
 import '../ui/pages/ProviderFlow/RequestPending/request_pending_view.dart';
+import '../ui/pages/ProviderFlow/TabsView/tabs_view.dart';
 import '../ui/pages/ProviderFlow/VirtualOffice/virtual_office_view.dart';
 import '../ui/pages/SelectUserTypeView/user_type_view.dart';
 import '../ui/pages/SignUpView/signup_view.dart';
@@ -33,6 +33,7 @@ class Routes {
   static const String selectUserTypeView = '/select-user-type-view';
   static const String professionalInfoView = '/professional-info-view';
   static const String zipCodeView = '/zip-code-view';
+  static const String tabsView = '/tabs-view';
   static const String personalIntoView = '/personal-into-view';
   static const String facilityInfoView = '/facility-info-view';
   static const String requestPending = '/request-pending';
@@ -48,6 +49,7 @@ class Routes {
     selectUserTypeView,
     professionalInfoView,
     zipCodeView,
+    tabsView,
     personalIntoView,
     facilityInfoView,
     requestPending,
@@ -69,6 +71,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.selectUserTypeView, page: SelectUserTypeView),
     RouteDef(Routes.professionalInfoView, page: ProfessionalInfoView),
     RouteDef(Routes.zipCodeView, page: ZipCodeView),
+    RouteDef(Routes.tabsView, page: TabsView),
     RouteDef(Routes.personalIntoView, page: PersonalIntoView),
     RouteDef(Routes.facilityInfoView, page: FacilityInfoView),
     RouteDef(Routes.requestPending, page: RequestPending),
@@ -101,7 +104,10 @@ class StackedRouter extends RouterBase {
         orElse: () => SignUpViewArguments(),
       );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => SignUpView(key: args.key),
+        builder: (context) => SignUpView(
+          key: args.key,
+          showLicenceNoField: args.showLicenceNoField,
+        ),
         settings: data,
       );
     },
@@ -123,6 +129,12 @@ class StackedRouter extends RouterBase {
     ZipCodeView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const ZipCodeView(),
+        settings: data,
+      );
+    },
+    TabsView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const TabsView(),
         settings: data,
       );
     },
@@ -203,7 +215,8 @@ class OnBoardingViewArguments {
 /// SignUpView arguments holder class
 class SignUpViewArguments {
   final Key? key;
-  SignUpViewArguments({this.key});
+  final bool showLicenceNoField;
+  SignUpViewArguments({this.key, this.showLicenceNoField = false});
 }
 
 /// ProfessionalInfoView arguments holder class

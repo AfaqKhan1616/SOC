@@ -3,6 +3,6 @@ import 'package:soc/ui/pages/app_view_model.dart';
 
 class OnBoardingViewModel extends AppViewModel {
   onSkip() {
-    navigationService.navigateTo(Routes.signUpView);
+    navigationService.navigateTo(Routes.selectUserTypeView);
   }
 }

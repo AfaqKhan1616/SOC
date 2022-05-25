@@ -6,6 +6,7 @@ import 'package:soc/ui/pages/ProviderFlow/PersonalInfo/personal_info_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/PricingAndPayment/pricing_payment_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/ProfessionalInfo/professional_info_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/RequestPending/request_pending_view.dart';
+import 'package:soc/ui/pages/ProviderFlow/TabsView/tabs_view.dart';
 import 'package:soc/ui/pages/ProviderFlow/VirtualOffice/virtual_office_view.dart';
 import 'package:soc/ui/pages/SelectUserTypeView/user_type_view.dart';
 import 'package:soc/ui/pages/SignUpView/signup_view.dart';
@@ -23,6 +24,7 @@ import '../ui/pages/OnBoardingView/on_boarding_view.dart';
   MaterialRoute(page: SelectUserTypeView),
   MaterialRoute(page: ProfessionalInfoView),
   MaterialRoute(page: ZipCodeView),
+  MaterialRoute(page: TabsView),
   MaterialRoute(page: PersonalIntoView),
   MaterialRoute(page: FacilityInfoView),
   MaterialRoute(page: RequestPending),

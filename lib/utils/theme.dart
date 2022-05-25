@@ -23,4 +23,5 @@ class MyTheme {
   static const Color redColor = Color(0xffD80336);
   static const Color blackColor = Color(0xff000000);
   static const Color hintGray = Color(0xFF858585);
+  static const Color shadowColor = Color(0x1638549D);
 }

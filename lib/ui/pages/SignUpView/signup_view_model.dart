@@ -84,7 +84,7 @@ class SignUpViewModel extends AppViewModel {
   }
 
   void onSubmit() async {
-    navigationService.navigateTo(Routes.tabsView);
+    navigationService.navigateTo(Routes.zipCodeView);
     // if (checkValid()) {
     //   showLoadingDialog();
     //   try {

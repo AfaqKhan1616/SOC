@@ -4,6 +4,7 @@ class MyTheme {
   static const Color mainColorLight = Color(0xff2CCAE8);
   static const Color links = Color(0xff5B75FF);
   static const Color lightGrey = Color(0xffADADAD);
+  static const Color grey = Color(0xff727272);
   static const Color lineColor = Color(0xffD8D8D8);
   static const Color whiteColor = Color(0xffffffff);
   static const Color lightMainColor = Color(0xffE9FBFF);
